@@ -283,3 +283,18 @@ span {
   background: #041832;
   margin: 96px 0 48px 0;
 }
+
+.lista-vazia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.lista-vazia > p {
+  font-family: 'Poppins', sans-serif;
+  color: var(--Azul-Dark);
+  font-weight: 400;
+  font-size: 22px;
+}

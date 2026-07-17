@@ -12,7 +12,25 @@ const ui = {
 		listaPensamentos.innerHTML = "";
 		try {
 			const pensamentos = await api.buscarPensamentos()
-			pensamentos.forEach(ui.adicionarPensamentoNaLista);
+			console.table(pensamentos)
+			if (pensamentos.length !== 0) {
+				pensamentos.forEach(ui.adicionarPensamentoNaLista);
+			} else {
+				const containerListaPensamentos = document.getElementById('lista-pensamentos-container')
+
+				const div = document.createElement('div')
+				div.classList.add('lista-vazia')
+
+				const paragrafo = document.createElement('p')
+				paragrafo.textContent = 'Nada por aqui ainda, que tal compartilhar alguma ideia?'
+
+				const imagem = document.createElement('img')
+				imagem.src = 'assets/imagens/lista-vazia.png'
+
+				div.appendChild(paragrafo)
+				div.appendChild(imagem)
+				containerListaPensamentos.append(div)
+			}
 		} catch {
 			alert('Erro ao renderizar pensamentos.')
 		}
